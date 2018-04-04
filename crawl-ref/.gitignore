@@ -200,6 +200,8 @@ source/util/tx.exe
 source/util/tx
 source/.tx/config
 
+/source/saves*
+
 # eclipse project files
 .cproject
 .project
