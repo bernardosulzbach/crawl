@@ -2971,16 +2971,18 @@ void start_explore(bool grab_items)
     _start_running();
 }
 
-void do_explore_cmd()
-{
-    if (apply_starvation_penalties())
-        mpr("You need to eat something NOW!");
-    else if (you.berserk())
-        mpr("Calm down first, please.");
-    else if (player_in_branch(BRANCH_LABYRINTH))
-        mpr("No exploration algorithm can help you here.");
-    else                        // Start exploring
-        start_explore(Options.explore_greedy);
+void do_explore_cmd() {
+  if (apply_starvation_penalties()) {
+    mpr("You need to eat something NOW!");
+    return;
+  }
+  if (you.berserk()) {
+    mpr("Override: ignoring that you are berserk.");
+  }
+  if (player_in_branch(BRANCH_LABYRINTH)) {
+    mpr("No exploration algorithm can help you here.");
+  }
+  start_explore(Options.explore_greedy);
 }
 
 //////////////////////////////////////////////////////////////////////////
