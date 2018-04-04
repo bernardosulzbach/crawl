@@ -2977,10 +2977,10 @@ void do_explore_cmd() {
     return;
   }
   if (you.berserk()) {
-    mpr("Override: ignoring that you are berserk.");
+    mpr("Bernardo: ignoring that you are berserk.");
   }
   if (player_in_branch(BRANCH_LABYRINTH)) {
-    mpr("No exploration algorithm can help you here.");
+    mpr("Bernardo: ignoring that you are in the labyrinth.");
   }
   start_explore(Options.explore_greedy);
 }
